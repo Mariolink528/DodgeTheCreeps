@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-export var min_speed = 150
-export var max_speed = 250
+export var MIN_SPEED = 150
+export var MAX_SPEED = 250
 var mob_types = ["walk", "swim", "fly"]
 # Declare member variables here. Examples:
 # var a = 2

@@ -16,10 +16,13 @@ func new_game():
 	$StartTimer.start()
 	$HUD.show_message("Get Ready")
 	$HUD.update_score(score)
+	$Music.play()
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.game_over()
+	$DeathSound.play()
+	$Music.stop()
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
@@ -35,4 +38,4 @@ func _on_MobTimer_timeout():
 	mob.position = $MobPath/MobSpawnLocation.position
 	direction += rand_range(-PI/4, PI/4)
 	mob.rotation = direction
-	mob.set_linear_velocity(Vector2(rand_range(mob.MIN_SPEED, mob.MAX_SPEED) ,0).rotated(direction))
+	mob.set_linear_velocity(Vector2(rand_range(150, 250) ,0).rotated(direction))
